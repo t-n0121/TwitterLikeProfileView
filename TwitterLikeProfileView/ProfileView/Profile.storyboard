@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LgZ-5w-6Xf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="SQg-9E-3sm">
+            <objects>
+                <viewController id="LgZ-5w-6Xf" customClass="ProfileViewController" customModule="TwitterLikeProfileView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dHa-8l-5Qw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-ca-VJD">
+                                <rect key="frame" x="-20" y="-20" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lkB-qw-6zC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2000" id="ztY-xS-iBn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lkB-qw-6zC" firstAttribute="leading" secondItem="Cfl-ca-VJD" secondAttribute="leading" id="j5h-4D-ayy"/>
+                                    <constraint firstAttribute="bottom" secondItem="lkB-qw-6zC" secondAttribute="bottom" id="mf8-tV-t6g"/>
+                                    <constraint firstAttribute="trailing" secondItem="lkB-qw-6zC" secondAttribute="trailing" id="yoa-9s-CXo"/>
+                                    <constraint firstItem="lkB-qw-6zC" firstAttribute="top" secondItem="Cfl-ca-VJD" secondAttribute="top" id="zh5-NG-5Vo"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcM-Mn-M3q" customClass="ProfileNavigationView" customModule="TwitterLikeProfileView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="backgorundAlpha">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lkB-qw-6zC" firstAttribute="width" secondItem="dHa-8l-5Qw" secondAttribute="width" id="1rD-Yh-lp0"/>
+                            <constraint firstItem="IQR-Q8-mpJ" firstAttribute="trailing" secondItem="Cfl-ca-VJD" secondAttribute="trailing" id="GP2-qm-PmG"/>
+                            <constraint firstItem="IQR-Q8-mpJ" firstAttribute="top" secondItem="dcM-Mn-M3q" secondAttribute="bottom" constant="-44" id="Qc5-q1-8rP"/>
+                            <constraint firstItem="IQR-Q8-mpJ" firstAttribute="bottom" secondItem="Cfl-ca-VJD" secondAttribute="bottom" id="UfX-F9-PwI"/>
+                            <constraint firstItem="dcM-Mn-M3q" firstAttribute="trailing" secondItem="IQR-Q8-mpJ" secondAttribute="trailing" id="Yic-Gy-5o4"/>
+                            <constraint firstItem="dcM-Mn-M3q" firstAttribute="top" secondItem="dHa-8l-5Qw" secondAttribute="top" id="geT-BR-pcl"/>
+                            <constraint firstItem="dcM-Mn-M3q" firstAttribute="leading" secondItem="IQR-Q8-mpJ" secondAttribute="leading" id="sm7-m3-XSv"/>
+                            <constraint firstItem="Cfl-ca-VJD" firstAttribute="leading" secondItem="IQR-Q8-mpJ" secondAttribute="leading" id="u3N-jO-I6o"/>
+                            <constraint firstItem="Cfl-ca-VJD" firstAttribute="top" secondItem="dHa-8l-5Qw" secondAttribute="top" id="ugC-ap-Yrj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IQR-Q8-mpJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bFf-jD-qB9"/>
+                    <connections>
+                        <outlet property="profileNavigationView" destination="dcM-Mn-M3q" id="Jlq-EC-vrl"/>
+                        <outlet property="scrollView" destination="Cfl-ca-VJD" id="Je3-1n-PVK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2RP-7f-kKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="152.47376311844079"/>
+        </scene>
+    </scenes>
+</document>
