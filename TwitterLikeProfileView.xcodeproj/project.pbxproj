@@ -79,6 +79,7 @@
 				174AFD7F21705029002A61D4 /* ProfileViewController.swift */,
 				174AFD78216EF608002A61D4 /* Profile.storyboard */,
 				174AFD7A21703D16002A61D4 /* Navigation */,
+				17FB5D4C2177058900D9DEBE /* Segment */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -106,6 +107,13 @@
 				174AFD7B21703D4B002A61D4 /* ProfileNavigationView.xib */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		17FB5D4C2177058900D9DEBE /* Segment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Segment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

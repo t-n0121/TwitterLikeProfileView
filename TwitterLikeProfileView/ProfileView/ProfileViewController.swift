@@ -12,11 +12,13 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var profileNavigationView: ProfileNavigationView!
+    @IBOutlet weak var headerViewTopConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
         profileNavigationView.delegate = self
+        scrollView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 64, right: 0)
     }
     
 
@@ -37,20 +39,36 @@ extension ProfileViewController: UIScrollViewDelegate {
     // ナビゲーションのバックグラウンドのアルファ値の変更を始める境界のダミー
     // Twitterアプリだとユーザー名がナビゲーションにかかるタイミングで始まる
     private var dymmyBoundaryOfsetY: CGFloat {
-        return 200
+        return 100
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        updateNavigation(from: scrollView.contentOffset.y)
+        if scrollView == scrollView {
+            updateNavigation(from: scrollView.contentOffset.y)
+            updateHeader(from: scrollView.contentOffset.y)
+        }
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        updateNavigation(from: scrollView.contentOffset.y)
+        if scrollView == scrollView {
+            updateNavigation(from: scrollView.contentOffset.y)
+            updateHeader(from: scrollView.contentOffset.y)
+        }
     }
 
     func updateNavigation(from currentOfsetY: CGFloat) {
         let ofsetY = currentOfsetY - dymmyBoundaryOfsetY
         profileNavigationView.setBackgroundAlpha(from: ofsetY)
+    }
+
+    func updateHeader(from currentOfsetY: CGFloat) {
+        var constant = -(currentOfsetY + 200)
+
+        if constant < -50 {
+            constant = -50
+        }
+
+        headerViewTopConstraint.constant = constant
     }
 }
 
