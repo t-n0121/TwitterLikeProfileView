@@ -16,6 +16,12 @@
 		174AFD7C21703D4B002A61D4 /* ProfileNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174AFD7B21703D4B002A61D4 /* ProfileNavigationView.xib */; };
 		174AFD7E21703D5A002A61D4 /* ProfileNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AFD7D21703D5A002A61D4 /* ProfileNavigationView.swift */; };
 		174AFD8021705029002A61D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AFD7F21705029002A61D4 /* ProfileViewController.swift */; };
+		178830DD217725CB0072FAD0 /* ProfileContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178830D1217725CB0072FAD0 /* ProfileContentsCollectionViewCell.swift */; };
+		178830DE217725CB0072FAD0 /* ProfileContentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178830D2217725CB0072FAD0 /* ProfileContentsCollectionViewCell.xib */; };
+		178830E0217725CB0072FAD0 /* ProfileContents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178830D4217725CB0072FAD0 /* ProfileContents.storyboard */; };
+		178830E2217727470072FAD0 /* ProfileContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178830E1217727470072FAD0 /* ProfileContentsViewController.swift */; };
+		178830F821772A800072FAD0 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178830F721772A800072FAD0 /* TweetViewController.swift */; };
+		178830FA21772A980072FAD0 /* Tweet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178830F921772A980072FAD0 /* Tweet.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		174AFD7B21703D4B002A61D4 /* ProfileNavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileNavigationView.xib; sourceTree = "<group>"; };
 		174AFD7D21703D5A002A61D4 /* ProfileNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationView.swift; sourceTree = "<group>"; };
 		174AFD7F21705029002A61D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		178830D1217725CB0072FAD0 /* ProfileContentsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		178830D2217725CB0072FAD0 /* ProfileContentsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileContentsCollectionViewCell.xib; sourceTree = "<group>"; };
+		178830D4217725CB0072FAD0 /* ProfileContents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileContents.storyboard; sourceTree = "<group>"; };
+		178830E1217727470072FAD0 /* ProfileContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContentsViewController.swift; sourceTree = "<group>"; };
+		178830F721772A800072FAD0 /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
+		178830F921772A980072FAD0 /* Tweet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tweet.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,7 @@
 				174AFD78216EF608002A61D4 /* Profile.storyboard */,
 				174AFD7A21703D16002A61D4 /* Navigation */,
 				17FB5D4C2177058900D9DEBE /* Segment */,
+				178830C32177255B0072FAD0 /* Contents */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -107,6 +120,35 @@
 				174AFD7B21703D4B002A61D4 /* ProfileNavigationView.xib */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		178830C32177255B0072FAD0 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				178830E1217727470072FAD0 /* ProfileContentsViewController.swift */,
+				178830D4217725CB0072FAD0 /* ProfileContents.storyboard */,
+				178830D0217725CB0072FAD0 /* Cell */,
+				178830F621772A320072FAD0 /* Tweet */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		178830D0217725CB0072FAD0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				178830D1217725CB0072FAD0 /* ProfileContentsCollectionViewCell.swift */,
+				178830D2217725CB0072FAD0 /* ProfileContentsCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		178830F621772A320072FAD0 /* Tweet */ = {
+			isa = PBXGroup;
+			children = (
+				178830F721772A800072FAD0 /* TweetViewController.swift */,
+				178830F921772A980072FAD0 /* Tweet.storyboard */,
+			);
+			path = Tweet;
 			sourceTree = "<group>";
 		};
 		17FB5D4C2177058900D9DEBE /* Segment */ = {
@@ -176,7 +218,10 @@
 			files = (
 				174AFD6E216EF493002A61D4 /* LaunchScreen.storyboard in Resources */,
 				174AFD6B216EF493002A61D4 /* Assets.xcassets in Resources */,
+				178830FA21772A980072FAD0 /* Tweet.storyboard in Resources */,
 				174AFD79216EF608002A61D4 /* Profile.storyboard in Resources */,
+				178830DE217725CB0072FAD0 /* ProfileContentsCollectionViewCell.xib in Resources */,
+				178830E0217725CB0072FAD0 /* ProfileContents.storyboard in Resources */,
 				174AFD7C21703D4B002A61D4 /* ProfileNavigationView.xib in Resources */,
 				174AFD69216EF490002A61D4 /* Main.storyboard in Resources */,
 			);
@@ -190,8 +235,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				174AFD66216EF490002A61D4 /* ViewController.swift in Sources */,
+				178830F821772A800072FAD0 /* TweetViewController.swift in Sources */,
 				174AFD7E21703D5A002A61D4 /* ProfileNavigationView.swift in Sources */,
+				178830DD217725CB0072FAD0 /* ProfileContentsCollectionViewCell.swift in Sources */,
 				174AFD8021705029002A61D4 /* ProfileViewController.swift in Sources */,
+				178830E2217727470072FAD0 /* ProfileContentsViewController.swift in Sources */,
 				174AFD64216EF490002A61D4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

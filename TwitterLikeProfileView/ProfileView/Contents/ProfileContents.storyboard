@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4fb-gn-hwJ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile Contents View Controller-->
+        <scene sceneID="Vfj-o8-CBa">
+            <objects>
+                <viewController storyboardIdentifier="IllustrationContentsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4fb-gn-hwJ" customClass="ProfileContentsViewController" customModule="TwitterLikeProfileView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LAR-0F-pSP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="soc-i4-G4Z">
+                                <rect key="frame" x="-41" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="yzq-9T-8ST">
+                                    <size key="itemSize" width="375" height="647"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="4fb-gn-hwJ" id="JaM-XZ-APn"/>
+                                    <outlet property="delegate" destination="4fb-gn-hwJ" id="sFT-Ev-1wj"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="soc-i4-G4Z" firstAttribute="leading" secondItem="Th3-iI-A6k" secondAttribute="leading" id="CW6-3j-kai"/>
+                            <constraint firstItem="soc-i4-G4Z" firstAttribute="trailing" secondItem="Th3-iI-A6k" secondAttribute="trailing" id="a0c-zN-YUh"/>
+                            <constraint firstItem="soc-i4-G4Z" firstAttribute="top" secondItem="LAR-0F-pSP" secondAttribute="top" id="gLb-Fh-zlC"/>
+                            <constraint firstItem="soc-i4-G4Z" firstAttribute="bottom" secondItem="Th3-iI-A6k" secondAttribute="bottom" id="xv1-p8-X4e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Th3-iI-A6k"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="soc-i4-G4Z" id="NFw-7D-TaG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gFI-RK-ars" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="214.54272863568218"/>
+        </scene>
+    </scenes>
+</document>

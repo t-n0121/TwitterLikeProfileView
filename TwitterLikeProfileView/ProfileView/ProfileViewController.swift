@@ -8,56 +8,46 @@
 
 import UIKit
 
+// TODO: scrollviewをProfileContentsViewControllerに置き換える
+// scroll量をデリゲートなり何なりで受け取れるようにする
+
 class ProfileViewController: UIViewController {
 
-    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet private weak var profileNavigationView: ProfileNavigationView!
     @IBOutlet weak var headerViewTopConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
         profileNavigationView.delegate = self
-        scrollView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 64, right: 0)
     }
     
 
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? ProfileContentsViewController,
+            segue.identifier == "EmbedSegue" {
+            vc.delegate = self
+        }
     }
-    */
-
 }
 
-extension ProfileViewController: UIScrollViewDelegate {
+extension ProfileViewController: ProfileContentsViewDelegate {
 
     // ナビゲーションのバックグラウンドのアルファ値の変更を始める境界のダミー
     // Twitterアプリだとユーザー名がナビゲーションにかかるタイミングで始まる
     private var dymmyBoundaryOfsetY: CGFloat {
-        return 100
+        return 50
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == scrollView {
-            updateNavigation(from: scrollView.contentOffset.y)
-            updateHeader(from: scrollView.contentOffset.y)
-        }
-    }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if scrollView == scrollView {
-            updateNavigation(from: scrollView.contentOffset.y)
-            updateHeader(from: scrollView.contentOffset.y)
-        }
+    func updateScrollOffsetY(y: CGFloat) {
+        print("updateScrollOfsetY: \(y)")
+        updateNavigation(from: y)
+        updateHeader(from: y)
     }
 
     func updateNavigation(from currentOfsetY: CGFloat) {
-        let ofsetY = currentOfsetY - dymmyBoundaryOfsetY
+        let ofsetY = (currentOfsetY + 200) - dymmyBoundaryOfsetY
         profileNavigationView.setBackgroundAlpha(from: ofsetY)
     }
 
