@@ -37,7 +37,7 @@ extension ProfileViewController: ProfileContentsViewDelegate {
     // ナビゲーションのバックグラウンドのアルファ値の変更を始める境界のダミー
     // Twitterアプリだとユーザー名がナビゲーションにかかるタイミングで始まる
     private var dymmyBoundaryOfsetY: CGFloat {
-        return 50
+        return 0
     }
 
     func updateScrollOffsetY(y: CGFloat) {
@@ -47,15 +47,15 @@ extension ProfileViewController: ProfileContentsViewDelegate {
     }
 
     func updateNavigation(from currentOfsetY: CGFloat) {
-        let ofsetY = (currentOfsetY + 200) - dymmyBoundaryOfsetY
+        let ofsetY = (currentOfsetY + 300) - dymmyBoundaryOfsetY
         profileNavigationView.setBackgroundAlpha(from: ofsetY)
     }
 
     func updateHeader(from currentOfsetY: CGFloat) {
-        var constant = -(currentOfsetY + 200)
+        var constant = -(currentOfsetY + 300)
 
-        if constant < -50 {
-            constant = -50
+        if constant < -150 {
+            constant = -150
         }
 
         headerViewTopConstraint.constant = constant

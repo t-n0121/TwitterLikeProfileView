@@ -41,7 +41,7 @@ extension TweetViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                                                  for: indexPath)
 
-        cell.textLabel?.text = "cell\(indexPath.row)"
+        cell.textLabel?.text = "cell\(indexPath.row + 1)"
 
         return cell
     }

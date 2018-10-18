@@ -30,7 +30,7 @@ class ProfileContentsViewController: UIViewController {
 	var type: ContentType = .tweet
     var delegate: ProfileContentsViewDelegate? = nil
 
-    private var currentOffsetY: CGFloat = -200 {
+    private var currentOffsetY: CGFloat = -300 {
         didSet {
             delegate?.updateScrollOffsetY(y: currentOffsetY)
 
@@ -62,7 +62,7 @@ extension ProfileContentsViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ProfileContentsCollectionViewCell
         cell.configure(type: ContentType(rawValue: indexPath.row)!)
-        cell.contents.scrollView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 64, right: 0)
+        cell.contents.scrollView.contentInset = UIEdgeInsets(top: 300, left: 0, bottom: 64, right: 0)
 		return cell
 	}
 
@@ -70,14 +70,7 @@ extension ProfileContentsViewController: UICollectionViewDataSource {
 
         if let _cell = cell as? ProfileContentsCollectionViewCell {
             _cell.contents.scrollView.delegate = self
-
-            if currentOffsetY > -150,  _cell.contents.scrollView.contentOffset.y <= -150 {
-                _cell.contents.scrollView.contentOffset.y = -150
-                delegate?.updateScrollOffsetY(y: -150)
-            } else if currentOffsetY <= -150 {
-                _cell.contents.scrollView.contentOffset.y = currentOffsetY
-                delegate?.updateScrollOffsetY(y: currentOffsetY)
-            }
+            updateScrollOffsetY(scrollView: _cell.contents.scrollView)
         }
     }
 
@@ -85,6 +78,26 @@ extension ProfileContentsViewController: UICollectionViewDataSource {
 
         if let _cell = cell as? ProfileContentsCollectionViewCell {
             _cell.contents.scrollView.delegate = nil
+        }
+    }
+
+    func updateScrollOffsetY(scrollView: UIScrollView) {
+        // case1
+        // 現在の画面のヘッダーが隠れている場合かつ次に表示する画面のヘッダーが見えている場合
+        // ヘッダーが隠れている状態にする
+        // リストの開始位置はセグメントUIの下が1番目になる
+        if currentOffsetY > -150,  scrollView.contentOffset.y <= -150 {
+            scrollView.contentOffset.y = -150
+            delegate?.updateScrollOffsetY(y: -150)
+        }
+            // case2
+            // 現在の画面のヘッダーが見えている場合
+            // 次の画面のオフセットの位置を同じにする
+        else if currentOffsetY <= -150 {
+            scrollView.contentOffset.y = currentOffsetY
+            delegate?.updateScrollOffsetY(y: currentOffsetY)
+        } else {
+
         }
     }
 }
