@@ -20,9 +20,8 @@ class ProfileContentsCollectionViewCell: UICollectionViewCell {
     private var type: ProfileContentsViewController.ContentType = .tweet
     var contents: TweetViewController!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         contents = TweetViewController.instantiate()
 
         contentView.addSubview(contents.view)
@@ -35,7 +34,11 @@ class ProfileContentsCollectionViewCell: UICollectionViewCell {
         view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
 
-	func configure(type: ProfileContentsViewController.ContentType) {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
+	func configure(type: ProfileContentsViewController.ContentType) {
+        
 	}
 }

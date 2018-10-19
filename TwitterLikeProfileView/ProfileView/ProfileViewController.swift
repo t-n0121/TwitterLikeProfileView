@@ -8,9 +8,6 @@
 
 import UIKit
 
-// TODO: scrollviewをProfileContentsViewControllerに置き換える
-// scroll量をデリゲートなり何なりで受け取れるようにする
-
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
@@ -41,7 +38,6 @@ extension ProfileViewController: ProfileContentsViewDelegate {
     }
 
     func updateScrollOffsetY(y: CGFloat) {
-        print("updateScrollOfsetY: \(y)")
         updateNavigation(from: y)
         updateHeader(from: y)
     }
