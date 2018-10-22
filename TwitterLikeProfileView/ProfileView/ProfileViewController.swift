@@ -42,6 +42,10 @@ extension ProfileViewController: ProfileContentsViewDelegate {
         updateHeader(from: y)
     }
 
+    func updateScrollOffsetX(x: CGFloat) {
+        
+    }
+
     func updateNavigation(from currentOfsetY: CGFloat) {
         let ofsetY = (currentOfsetY + 300) - dymmyBoundaryOfsetY
         profileNavigationView.setBackgroundAlpha(from: ofsetY)

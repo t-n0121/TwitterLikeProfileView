@@ -14,6 +14,7 @@ protocol ProfileContentsScrollDelgate {
 
 protocol ProfileContentsViewDelegate {
     func updateScrollOffsetY(y: CGFloat)
+    func updateScrollOffsetX(x: CGFloat)
 }
 
 class ProfileContentsViewController: UIViewController {
@@ -40,6 +41,12 @@ class ProfileContentsViewController: UIViewController {
     private var currentOffsetY: CGFloat = -300 {
         didSet {
             delegate?.updateScrollOffsetY(y: currentOffsetY)
+        }
+    }
+
+    private var currentOffsetX: CGFloat = 0 {
+        didSet {
+            delegate?.updateScrollOffsetX(x: currentOffsetX)
         }
     }
 
@@ -112,12 +119,18 @@ extension ProfileContentsViewController: UICollectionViewDataSource {
 
 extension ProfileContentsViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == collectionView { return }
-        currentOffsetY = scrollView.contentOffset.y
+        updatedScrollOffset(scrollView)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if scrollView == collectionView { return }
+        updatedScrollOffset(scrollView)
+    }
+
+    private func updatedScrollOffset(_ scrollView: UIScrollView) {
+        if scrollView == collectionView {
+            currentOffsetX = scrollView.contentOffset.x
+            return
+        }
         currentOffsetY = scrollView.contentOffset.y
     }
 }
